@@ -17,9 +17,9 @@ function renderMini(id, data){
 }
 renderMini('muralGrid', mural); renderMini('sculptureGrid', sculpture); renderMini('patternGrid', pattern);
 const audio = [
-  ['cat_audio.webp','反弹琵琶乐段','02:48'],['floating_harmony_in_a_dreamscape.webp','箜篌音色','03:12'],['cat_audio.webp','笙乐片段','02:36'],['featured_audio.webp','鼓乐片段','02:15']
+  ['cat_audio.webp','反弹琵琶乐段','02:48','assets/audio/反弹琵琶.mp3'],['floating_harmony_in_a_dreamscape.webp','箜篌音色','03:12','assets/audio/箜篌.mp3'],['cat_audio.webp','笙乐片段','02:36','assets/audio/笙音.mp3'],['featured_audio.webp','鼓乐片段','02:15','assets/audio/鼓乐.mp3']
 ];
-document.getElementById('audioGrid').innerHTML = audio.map(([im,t,time])=>`<div class="audio-card" role="button" tabindex="0" aria-label="播放${t}"><img src="${img(im)}" onerror="this.src='${img('cat_audio.webp')}'"><div><h4>${t}</h4><div class="wave"></div><small>唐代 · 古乐复原</small></div><button class="play" type="button" aria-label="播放${t}">▶</button></div>`).join('');
+document.getElementById('audioGrid').innerHTML = audio.map(([im,t,time,src])=>`<div class="audio-card" role="button" tabindex="0" aria-label="播放${t}" data-src="${src}"><img src="${img(im)}" onerror="this.src='${img('cat_audio.webp')}'"><div><h4>${t}</h4><div class="wave"></div><small>唐代 · 古乐复原</small></div><button class="play" type="button" aria-label="播放${t}">▶</button></div>`).join('');
 const video=[['cat_video.webp','反弹琵琶舞姿','02:18'],['featured_pipa.webp','飞天舞姿','01:56'],['graceful_dance_among_ancient_temples.webp','敦煌舞动作展示','03:24'],['pipa_dance.webp','壁画动作复原','02:47']];
 document.getElementById('videoGrid').innerHTML = video.map(([im,t,time])=>`<div class="video-card" role="button" tabindex="0" aria-label="预览${t}"><img src="${img(im)}" onerror="this.src='${img('cat_video.webp')}'"><b>${t}</b><small>${time}</small></div>`).join('');
 const featured=[
@@ -87,13 +87,51 @@ document.querySelector('.search-box button')?.addEventListener('click', () => {
   showToast(keyword ? `正在搜索「${keyword}」` : '请输入关键词');
 });
 
+let currentAudio = null;
+let audioPlayers = {};
+
 document.querySelectorAll('.audio-card').forEach((card) => {
   const play = card.querySelector('.play');
+  const audioSrc = card.getAttribute('data-src');
+  const title = card.querySelector('h4').textContent;
+  
+  // 为每个音频卡创建音频播放器
+  const audioPlayer = new Audio(audioSrc);
+  audioPlayer.onended = () => {
+    card.classList.remove('is-playing');
+    play.textContent = '▶';
+    showToast(`已播放完毕：${title}`);
+  };
+  audioPlayer.onerror = () => {
+    showToast(`无法加载音频文件：${title}`);
+  };
+  audioPlayers[audioSrc] = audioPlayer;
+  
   const toggle = () => {
     const isPlaying = card.classList.toggle('is-playing');
     play.textContent = isPlaying ? 'Ⅱ' : '▶';
     play.setAttribute('aria-label', isPlaying ? '暂停音频' : '播放音频');
+    
+    if (isPlaying) {
+      // 暂停其他正在播放的音频
+      if (currentAudio && currentAudio !== audioPlayer) {
+        currentAudio.pause();
+        document.querySelectorAll('.audio-card').forEach(c => {
+          if (c.getAttribute('data-src') !== audioSrc) {
+            c.classList.remove('is-playing');
+            c.querySelector('.play').textContent = '▶';
+          }
+        });
+      }
+      currentAudio = audioPlayer;
+      audioPlayer.play().catch(err => showToast('播放失败，请检查文件路径'));
+      showToast(`正在播放：${title}`);
+    } else {
+      audioPlayer.pause();
+      showToast('已暂停');
+    }
   };
+  
   play.addEventListener('click', (event) => {
     event.stopPropagation();
     toggle();
