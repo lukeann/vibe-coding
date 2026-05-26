@@ -4,9 +4,9 @@ body{overflow-x:hidden}
 .page-shell{width:100%;min-height:100vh;background:linear-gradient(rgba(3,12,13,.03),rgba(3,12,13,.12));padding-bottom:18px}
 .topbar{height:56px;background:linear-gradient(180deg,#17100c,#090706);display:flex;align-items:center;padding:0 clamp(22px,3vw,48px);border-bottom:1px solid rgba(214,165,76,.38);position:relative;z-index:5;box-shadow:0 5px 18px rgba(0,0,0,.32)}
 .brand{width:245px;display:flex;align-items:center;gap:12px;min-width:0}
-.logo-mark{width:40px;height:40px;border:2px solid #d9ae5b;border-radius:50%;display:grid;place-items:center;color:#f7cf75;font-size:20px;box-shadow:0 0 18px rgba(220,159,64,.25) inset;flex:0 0 auto}
-.brand-cn{font-size:22px;letter-spacing:3px;font-weight:800;color:#f2d38e;line-height:1;white-space:nowrap}
-.brand-en{font-size:9px;letter-spacing:2px;color:#c99f58;margin-top:4px;white-space:nowrap}
+.brand-logo{width:40px;height:40px;border:2px solid #d9ae5b;border-radius:50%;display:grid;place-items:center;color:#f7cf75;font-size:20px;box-shadow:0 0 18px rgba(220,159,64,.25) inset;flex:0 0 auto}
+.brand-title{font-size:22px;letter-spacing:3px;font-weight:800;color:#f2d38e;line-height:1;white-space:nowrap}
+.brand-sub{font-size:9px;letter-spacing:2px;color:#c99f58;margin-top:4px;white-space:nowrap}
 .nav{flex:1;display:flex;justify-content:center;gap:clamp(16px,2.1vw,38px);height:100%;align-items:center;min-width:0}
 .nav a{position:relative;color:#d6bb86;text-decoration:none;font-size:16px;letter-spacing:2px;font-weight:700;white-space:nowrap}
 .nav a.active{color:#ffe096}
@@ -22,16 +22,11 @@ body{overflow-x:hidden}
 .nav .nav-dropdown a{height:38px;padding:0 12px;display:flex;align-items:center;justify-content:center;border-radius:7px;color:#d6bb86;font-size:14px;letter-spacing:1px}
 .nav .nav-dropdown a::before,.nav .nav-dropdown a::after{display:none}
 .nav .nav-dropdown a:hover,.nav .nav-dropdown a:focus-visible{color:#ffe096;background:rgba(214,165,76,.16)}
-.user-tools{width:230px;display:flex;justify-content:flex-end;align-items:center;gap:12px;color:#eed499;font-size:13px;min-width:0}
-.round-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(230,184,93,.45);background:#100c08;color:#f4d68a;font-size:20px;line-height:1;cursor:pointer}
-.avatar{width:40px;height:40px;border-radius:50%;border:2px solid #dfb15f;background:#ead3aa;color:#8a481d;display:grid;place-items:center;font-weight:900;flex:0 0 auto}
-.user-tools em{font-style:normal;color:#f7c963;font-size:12px}
-.topbar{height:76px;padding:0 48px;background:linear-gradient(180deg,#17100c,#090706);border-bottom:1px solid rgba(214,165,76,.38);backdrop-filter:blur(14px);box-shadow:0 5px 18px rgba(0,0,0,.32);position:sticky;top:0;z-index:20}
-.brand{width:auto;min-width:220px;gap:14px}
-.logo-mark{width:42px;height:42px;border:1px solid rgba(217,174,91,.86);border-radius:50%;color:#f7cf75;background:rgba(12,9,6,.72);font-size:0;box-shadow:0 0 18px rgba(220,159,64,.25) inset}
-.logo-mark::before{content:"✺";font-size:22px}
-.brand-cn{font-size:25px;letter-spacing:3px;font-weight:800;color:#f2d38e;line-height:1.1}
-.brand-en{font-size:9px;color:#c99f58;letter-spacing:2px;margin-top:2px}
+.topbar{height:76px;padding:0 48px;background:linear-gradient(180deg,#17100c,#090706);border-bottom:1px solid rgba(214,165,76,.38);backdrop-filter:blur(14px);box-shadow:0 5px 18px rgba(0,0,0,.32);position:absolute;top:0;left:0;width:100%;z-index:20}
+.brand{width:auto;min-width:220px;display:flex;align-items:center;gap:14px;color:#3f382d}
+.brand-logo{width:42px;height:42px;border:1px solid rgba(217,174,91,.86);border-radius:50%;display:grid;place-items:center;color:#f7cf75;font-size:22px;background:rgba(12,9,6,.72);box-shadow:0 0 18px rgba(220,159,64,.25) inset}
+.brand-title{font-size:25px;letter-spacing:3px;font-weight:800;color:#f2d38e;margin:0}
+.brand-sub{font-size:9px;color:#c99f58;letter-spacing:2px;margin-top:2px}
 .nav{height:76px;gap:36px;color:#d6bb86}
 .nav a{padding:28px 0;color:#d6bb86;font-size:17px;letter-spacing:0;font-weight:700}
 .nav a.active{color:#ffe096}
@@ -51,16 +46,12 @@ body{overflow-x:hidden}
 .top-actions .search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:13px;color:#f7ead7}
 .top-actions .search input::placeholder{color:rgba(247,234,215,.62)}
 .top-actions .search span{font-size:22px}
-.top-actions .round-btn{order:2;width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#d5ad76;font-size:0}
-.top-actions .round-btn::before{font-size:17px;line-height:1}
-.top-actions .round-btn:nth-of-type(1)::before{content:"♡"}
-.top-actions .round-btn:nth-of-type(2)::before{content:"✉"}
-.top-actions .round-btn:hover{background:rgba(214,165,76,.14)}
+.top-actions .icon-btn{order:2;width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#d5ad76;font-size:17px}
+.top-actions .icon-btn:hover{background:rgba(214,165,76,.14)}
 .top-actions .user-mini{order:3;height:42px;padding:4px 12px 4px 4px;display:flex;align-items:center;gap:8px;border-radius:999px;background:rgba(255,255,255,.045);color:#ead9bd;text-decoration:none}
 .top-actions .user-mini img{width:34px;height:34px;border-radius:50%;object-fit:cover}
 .top-actions .user-mini span{font-size:13px}
 .top-actions .user-mini em{font-style:normal;font-size:10px;color:#2d2115;background:#d2a768;border-radius:999px;padding:1px 6px}
-.top-actions>.avatar,.top-actions>span{display:none}
 .hero{height:238px;background:transparent;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
 .hero::after{display:none}
 .hero-content{position:relative;z-index:1;margin-top:2px;text-shadow:0 2px 3px rgba(250,232,175,.35);padding:0 20px}

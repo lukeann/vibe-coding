@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>万象宝库｜敦煌数字文化资源库</title>
+  <link rel="stylesheet" href="../assets/css/treasure.css" />
+<style>
+.topbar{position:absolute;top:0;left:0;right:0;z-index:50;height:76px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,251,244,0.9);border-bottom:1px solid rgba(178,147,105,0.28);backdrop-filter:blur(14px)}
+.brand{min-width:220px;display:flex;align-items:center;gap:14px;color:#3f382d}
+.brand-logo{width:42px;height:42px;border:1px solid rgba(191,143,79,0.45);border-radius:50%;display:grid;place-items:center;color:#b37a35;background:radial-gradient(circle,#fffaf1 30%,#ead8bb);font-size:22px}
+.brand-title{font-size:25px;letter-spacing:3px;font-weight:800}
+.brand-sub{margin-top:2px;color:#b69b76;font-family:Georgia,"Times New Roman",serif;font-size:9px;letter-spacing:2px}
+.nav{display:flex;align-items:center;gap:36px;color:#655d50;font-size:17px}
+.nav a{position:relative;padding:28px 0;color:inherit;text-decoration:none;white-space:nowrap}
+.nav a::after{content:"";position:absolute;left:50%;bottom:19px;width:0;height:2px;background:#c8a36c;transform:translateX(-50%);transition:.25s}
+.nav a:hover,.nav a.active{color:#8b622f}
+.nav a:hover::after,.nav a.active::after{width:80%}
+.nav-item{position:relative;display:inline-flex;align-items:center}
+.has-dropdown>a{padding-right:15px}
+.has-dropdown>a::before{content:"";position:absolute;right:0;top:50%;width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:translateY(-62%) rotate(45deg);opacity:.55;transition:transform .22s ease,opacity .22s ease}
+.has-dropdown:hover>a::before,.has-dropdown:focus-within>a::before{transform:translateY(-35%) rotate(225deg);opacity:1}
+.nav-dropdown{position:absolute;left:50%;top:calc(100% - 7px);z-index:80;width:168px;padding:8px;display:grid;gap:2px;background:linear-gradient(180deg,rgba(255,253,249,.96),rgba(247,238,226,.95));border:1px solid rgba(196,147,88,.34);border-radius:8px;box-shadow:0 18px 42px rgba(92,63,36,.16);opacity:0;visibility:hidden;transform:translate(-50%,10px);transition:opacity .22s ease,transform .22s ease,visibility .22s ease}
+.nav-dropdown::before{content:"";position:absolute;left:50%;top:-6px;width:10px;height:10px;background:rgba(255,253,249,.96);border-left:1px solid rgba(196,147,88,.34);border-top:1px solid rgba(196,147,88,.34);transform:translateX(-50%) rotate(45deg)}
+.has-dropdown:hover .nav-dropdown,.has-dropdown:focus-within .nav-dropdown{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.nav .nav-dropdown a{height:38px;padding:0 12px;display:flex;align-items:center;justify-content:center;color:#4c3c2b;font-size:16px;border-radius:6px}
+.nav .nav-dropdown a::before,.nav .nav-dropdown a::after{display:none}
+.nav .nav-dropdown a:hover,.nav .nav-dropdown a:focus-visible{color:#8a5a25;background:rgba(196,147,88,.13)}
+.nav .has-dropdown>a::before,.nav .has-dropdown>a:hover::before,.nav .has-dropdown>a:focus-visible::before{left:auto!important;right:0!important;top:50%!important;bottom:auto!important;width:6px!important;height:6px!important;background:transparent!important;border-right:1px solid currentColor!important;border-bottom:1px solid currentColor!important;border-left:0!important;border-top:0!important;opacity:.72!important;box-shadow:none!important}
+.nav .has-dropdown>a::before{transform:translateY(-62%) rotate(45deg)!important}
+.nav .has-dropdown:hover>a::before,.nav .has-dropdown:focus-within>a::before{transform:translateY(-35%) rotate(225deg)!important}
+.top-actions{display:flex;align-items:center;gap:14px}
+.search{width:250px;height:42px;padding:0 16px;border:1px solid rgba(176,146,106,0.28);border-radius:999px;display:flex;align-items:center;color:#9d907e;background:rgba(255,255,255,0.72)}
+.search input{min-width:0;flex:1;border:none;outline:none;background:transparent;color:#776a5a;font-size:13px}
+.search input::placeholder{color:rgba(119,106,90,0.68)}
+.search span{font-size:22px;line-height:1}
+.icon-btn{width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#877665;font-size:17px}
+.icon-btn:hover{background:rgba(200,163,108,0.14)}
+.user-mini{height:42px;padding:4px 12px 4px 4px;display:flex;align-items:center;gap:8px;border-radius:999px;color:#655d50;background:rgba(255,255,255,0.62);cursor:default}
+.user-mini img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.user-mini span{font-size:13px;white-space:nowrap}
+.user-mini em{padding:1px 6px;border-radius:999px;color:#fff;background:#c8a36c;font-size:10px;font-style:normal}
+</style>
+</head>
+<body>
+  <div class="page-bg"></div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-logo">✺</div>
+      <div>
+        <div class="brand-title">敦煌·拾光</div>
+        <div class="brand-sub">DUNHUANG CULTURE</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="../welcome.html?view=home">首页</a>
+      <a href="./community.html">敦煌溯源</a>
+      <span class="nav-item has-dropdown">
+        <a href="./mogao1.html">莫高云境</a>
+        <span class="nav-dropdown">
+          <a href="./mogao1.html">云游洞窟</a>
+          <a href="./mogao2.html">洞窟筛选</a>
+        </span>
+      </span>
+      <a class="active" href="./wanxiang.html">万象宝库</a>
+      <span class="nav-item has-dropdown">
+        <a href="./knowledge1.html">丝路智网</a>
+        <span class="nav-dropdown">
+          <a href="./knowledge1.html">知识图谱</a>
+          <a href="./knowledge2.html">智能检索</a>
+        </span>
+      </span>
+      <a href="./game.html">妙绘奇境</a>
+      <a href="./origin.html">九色鹿鸣</a>
+      <a href="./profile.html">我的藏窟</a>
+    </nav>
+
+    <div class="top-actions">
+      <div class="search">
+        <input type="text" placeholder="搜索敦煌内容、藏品、用户" />
+        <span>⌕</span>
+      </div>
+      <button class="icon-btn">♡</button>
+      <button class="icon-btn">✉</button>
+      <div class="user-mini">
+        <img src="../assets/images/profile/lingxi-main.png" alt="用户头像">
+        <span>敦小妞</span>
+        <em>Lv.6</em>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="../assets/images/treasure/hero.webp" alt="万象宝库背景" />
+      <div class="hero-mask"></div>
+      <div class="hero-content">
+        <h2>万象宝库</h2>
+        <div class="ornament">✦</div>
+        <p class="subtitle">多媒体敦煌文化资源库</p>
+        <p class="intro">汇聚壁画、彩塑、纹样、古典音频与舞姿视频，构建可检索、可学习、可沉浸体验的数字资源空间</p>
+        <div class="search-box">
+          <span>⌕</span>
+          <input type="text" value="" placeholder="搜索壁画、纹样、洞窟、音频、舞姿等资源…" />
+          <button>搜索</button>
+        </div>
+        <div class="hot-tags"><b>热门搜索：</b><span>飞天</span><span>九色鹿</span><span>反弹琵琶</span><span>唐代壁画</span><span>彩塑</span><span>乐舞</span><span>莲花纹</span><span>藏经洞</span></div>
+      </div>
+    </section>
+
+    <section class="category-cards wrap">
+      <article class="category-card">
+        <img src="../assets/images/treasure/cat_mural.webp" alt="经典壁画" />
+        <div><i>✧</i><h3>经典壁画</h3><p>敦煌壁画精品</p><strong>6478 资源</strong></div>
+      </article>
+      <article class="category-card">
+        <img src="../assets/images/treasure/cat_sculpture.webp" alt="彩塑展品" />
+        <div><i>☸</i><h3>彩塑展品</h3><p>彩塑造像与佛像</p><strong>1326 资源</strong></div>
+      </article>
+      <article class="category-card">
+        <img src="../assets/images/treasure/cat_pattern.webp" alt="纹样素材" />
+        <div><i>❖</i><h3>纹样素材</h3><p>纹样图案与装饰</p><strong>5689 资源</strong></div>
+      </article>
+      <article class="category-card">
+        <img src="../assets/images/treasure/cat_audio.webp" alt="古典音频" />
+        <div><i>♬</i><h3>古典音频</h3><p>古乐器与声韵之美</p><strong>892 资源</strong></div>
+      </article>
+      <article class="category-card">
+        <img src="../assets/images/treasure/cat_video.webp" alt="舞姿视频" />
+        <div><i>♜</i><h3>舞姿视频</h3><p>敦煌舞姿与动作复原</p><strong>356 资源</strong></div>
+      </article>
+    </section>
+
+    <section class="filter-panel wrap panel">
+      <aside class="filter-title">
+        <div class="spark">✧</div>
+        <h3>资源筛选</h3>
+        <button>清空筛选</button>
+      </aside>
+      <div class="filter-rows">
+        <div class="filter-row"><b>资源类型：</b><span class="on">全部</span><span>壁画</span><span>彩塑</span><span>纹样</span><span>音频</span><span>视频</span><span>文献</span><span>三维模型</span></div>
+        <div class="filter-row"><b>年　　代：</b><span class="on">全部</span><span>北魏</span><span>隋</span><span>唐</span><span>五代</span><span>宋</span><span>元</span></div>
+        <div class="filter-row"><b>主　　题：</b><span class="on">全部</span><span>飞天</span><span>乐舞</span><span>佛教故事</span><span>供养人</span><span>装饰纹样</span><span>神话传说</span><span>历史人物</span><span>建筑</span><span>其他</span></div>
+        <div class="filter-row"><b>洞　　窟：</b><span class="on">全部</span><span>第17窟</span><span>第85窟</span><span>第98窟</span><span>第257窟</span><span>第285窟</span><span>第320窟</span><span>第428窟</span><span>第45窟</span><span>更多⌄</span></div>
+        <div class="filter-row colors"><b>色彩风格：</b><span class="on">全部</span><em style="--c:#2f8991"></em><span>石青</span><em style="--c:#518e72"></em><span>石绿</span><em style="--c:#b85035"></em><span>赭红</span><em style="--c:#b98243"></em><span>土黄</span><em style="--c:#f4e6c5"></em><span>白色系</span><em style="--c:#d8b56a"></em><span>金色系</span><span>多色</span><span>更多⌄</span></div>
+      </div>
+      <img class="filter-figure" src="../assets/images/treasure/filter_apsara.webp" alt="飞天装饰" />
+    </section>
+
+    <section class="triple wrap">
+      <div class="resource-block mural-block">
+        <div class="block-head"><h3>经典壁画</h3><a>更多›</a></div>
+        <div class="mini-grid" id="muralGrid"></div>
+        <button class="wide-btn">全部壁画资源 6478+</button>
+      </div>
+      <div class="resource-block sculpture-block">
+        <div class="block-head"><h3>彩塑展品</h3><a>更多›</a></div>
+        <div class="mini-grid" id="sculptureGrid"></div>
+        <button class="wide-btn">全部彩塑资源 1326+</button>
+      </div>
+      <div class="resource-block pattern-block">
+        <div class="block-head"><h3>纹样素材</h3><a>更多›</a></div>
+        <div class="mini-grid" id="patternGrid"></div>
+        <button class="wide-btn">全部纹样资源 5689+</button>
+      </div>
+    </section>
+
+    <section class="media wrap">
+      <div class="audio panel-soft">
+        <div class="section-title"><h3>古典音频精选</h3><a>更多音频›</a></div>
+        <div class="audio-grid" id="audioGrid"></div>
+      </div>
+      <div class="video panel-soft">
+        <div class="section-title"><h3>舞姿视频精选</h3><a>更多视频›</a></div>
+        <div class="video-grid" id="videoGrid"></div>
+        <div class="slider-dot"><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <section class="featured wrap panel-soft">
+      <div class="section-title"><h3>精选推荐</h3><a>更多推荐›</a></div>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </section>
+
+    <section class="support wrap">
+      <h3>权威支持与合作</h3>
+      <div class="support-grid">
+        <div><b>敦煌研究院</b><small>DUNHUANG ACADEMY</small></div>
+        <div><b>国家图书馆</b><small>NATIONAL LIBRARY OF CHINA</small></div>
+        <div><b>中国艺术研究院</b><small>CHINESE NATIONAL ACADEMY OF ARTS</small></div>
+        <div><b>兰州大学敦煌学研究所</b><small>INSTITUTE OF DUNHUANG STUDIES</small></div>
+      </div>
+    </section>
+
+    <section class="quick wrap">
+      <div><i>⬡</i><b>资源共建计划</b><span>共建共享开放数字资源</span></div>
+      <div><i>♧</i><b>教学科研支持</b><span>助力学术研究与教学</span></div>
+      <div><i>▣</i><b>开放接口服务</b><span>API 接口与数据服务</span></div>
+      <div><i>▤</i><b>版权与使用说明</b><span>规范使用 保护版权</span></div>
+      <div><i>☏</i><b>意见与反馈</b><span>欢迎提出宝贵建议</span></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="slogan">数字赋能文化　让敦煌走向未来</p>
+  </footer>
+
+  <script src="../assets/js/treasure.js"></script>
+</body>
+</html>

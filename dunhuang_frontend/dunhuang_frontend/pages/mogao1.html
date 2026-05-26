@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>敦煌·拾光 - 云游洞窟</title>
     <link rel="stylesheet" href="../assets/css/ai-assistant.css" />
+    <link rel="stylesheet" href="../assets/css/community.css" />
     <style>
         :root {
             --primary-blue: #1F5A9C;
@@ -67,287 +68,6 @@
             opacity: 0.9;
         }
 
-        .main-header {
-            position: relative;
-            z-index: 100;
-            width: 100%;
-            height: 80px;
-            padding: 0 42px;
-            display: grid;
-            grid-template-columns: 260px 1fr 430px;
-            align-items: center;
-            background: rgba(255, 253, 250, 0.88);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(196, 147, 88, 0.18);
-            box-shadow: 0 5px 18px rgba(104, 73, 42, 0.035);
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .logo-img {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 4px 18px rgba(179, 130, 78, 0.16);
-        }
-
-        .logo-text h1 {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            line-height: 1;
-            letter-spacing: 3px;
-            font-weight: 800;
-            color: #2E2117;
-        }
-
-        .logo-text p {
-            margin-top: 7px;
-            font-size: 10px;
-            line-height: 1;
-            color: #A08D78;
-            text-transform: uppercase;
-            letter-spacing: 2.2px;
-        }
-
-        nav {
-            justify-self: center;
-        }
-
-        nav ul {
-            display: flex;
-            align-items: center;
-            list-style: none;
-            gap: 38px;
-        }
-
-        nav li {
-            position: relative;
-        }
-
-        nav a {
-            position: relative;
-            display: block;
-            padding: 28px 0 24px;
-            text-decoration: none;
-            color: #3F352B;
-            font-family: var(--font-serif);
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 0.7px;
-            white-space: nowrap;
-            transition: color .25s ease, transform .25s ease, text-shadow .25s ease;
-        }
-
-        .has-dropdown > a {
-            padding-right: 16px;
-        }
-
-        .has-dropdown > a::before {
-            content: "";
-            position: absolute;
-            right: 0;
-            top: 50%;
-            width: 6px;
-            height: 6px;
-            border-right: 1px solid currentColor;
-            border-bottom: 1px solid currentColor;
-            transform: translateY(-60%) rotate(45deg);
-            opacity: .58;
-            transition: transform .22s ease, opacity .22s ease;
-        }
-
-        .has-dropdown:hover > a::before,
-        .has-dropdown:focus-within > a::before {
-            transform: translateY(-35%) rotate(225deg);
-            opacity: 1;
-        }
-
-        nav a:hover,
-        nav a:focus-visible,
-        nav a.active {
-            color: #18120D;
-            text-shadow: 0 8px 22px rgba(196,147,88,.20);
-            transform: translateY(-2px);
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 16px;
-            width: 0;
-            height: 2px;
-            border-radius: 999px;
-            background: var(--accent-gold);
-            transform: translateX(-50%);
-            opacity: 0;
-            box-shadow: 0 0 14px rgba(196,147,88,.42);
-            transition: width .25s ease, opacity .25s ease;
-        }
-
-        nav a:hover::after,
-        nav a:focus-visible::after {
-            width: 28px;
-            opacity: 1;
-        }
-
-        nav a.active::after {
-            width: 18px;
-            opacity: 1;
-        }
-
-        .nav-dropdown {
-            position: absolute;
-            left: 50%;
-            top: calc(100% - 6px);
-            width: 168px;
-            padding: 8px;
-            display: grid;
-            gap: 2px;
-            background:
-                radial-gradient(circle at 50% 0, rgba(255,255,255,.92), transparent 42%),
-                linear-gradient(180deg, rgba(255,253,249,.96), rgba(247,238,226,.95));
-            border: 1px solid rgba(196,147,88,.34);
-            border-radius: 8px;
-            box-shadow: 0 18px 42px rgba(92, 63, 36, .16);
-            opacity: 0;
-            visibility: hidden;
-            z-index: 120;
-            transform: translate(-50%, 10px);
-            transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
-        }
-
-        .nav-dropdown::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: -6px;
-            width: 10px;
-            height: 10px;
-            background: rgba(255,253,249,.96);
-            border-left: 1px solid rgba(196,147,88,.34);
-            border-top: 1px solid rgba(196,147,88,.34);
-            transform: translateX(-50%) rotate(45deg);
-        }
-
-        .nav-dropdown::after {
-            content: "";
-            position: absolute;
-            left: 18px;
-            right: 18px;
-            top: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(196,147,88,.62), transparent);
-        }
-
-        .has-dropdown:hover .nav-dropdown,
-        .has-dropdown:focus-within .nav-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translate(-50%, 0);
-        }
-
-        .nav-dropdown a {
-            height: 38px;
-            padding: 0 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #4C3C2B;
-            font-size: 14px;
-            letter-spacing: .8px;
-            border-radius: 6px;
-            transition: color .18s ease, background .18s ease, transform .18s ease, box-shadow .18s ease;
-        }
-
-        .nav-dropdown a::after,
-        .nav-dropdown a::before {
-            display: none;
-        }
-
-        .nav-dropdown a:hover,
-        .nav-dropdown a:focus-visible,
-        .nav-dropdown a.current {
-            color: #8A5A25;
-            background: rgba(196,147,88,.13);
-            box-shadow: inset 0 0 0 1px rgba(196,147,88,.12);
-            transform: translateX(2px);
-        }
-
-        .header-right {
-            justify-self: end;
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .search-box {
-            position: relative;
-        }
-
-        .search-box input {
-            width: 300px;
-            height: 42px;
-            padding: 0 46px 0 22px;
-            border-radius: 999px;
-            border: 1px solid rgba(196, 147, 88, 0.36);
-            outline: none;
-            background: rgba(255,255,255,0.82);
-            color: #6F6256;
-            font-size: 14px;
-            letter-spacing: 0.3px;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.88);
-        }
-
-        .search-box::after {
-            content: "⌕";
-            position: absolute;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-53%);
-            color: #9E7040;
-            font-size: 25px;
-            line-height: 1;
-        }
-
-        .top-icon {
-            width: 22px;
-            height: 22px;
-            display: grid;
-            place-items: center;
-            color: #9C7652;
-            font-size: 20px;
-            opacity: .9;
-        }
-
-        .user-chip {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            color: #6C5946;
-            font-size: 14px;
-            white-space: nowrap;
-        }
-
-        .avatar {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1px solid rgba(196, 147, 88, .28);
-        }
-
-        .level {
-            display: inline-flex;
-            align-items: center;
-            height: 22px;
-            padding: 0 8px;
-            border-radius: 999px;
             background: linear-gradient(180deg, #C59A62, #B17D43);
             color: #fff;
             font-size: 11px;
@@ -363,7 +83,7 @@
             position: relative;
             width: 100%;
             height: 510px;
-            padding: 82px 100px 0;
+            padding: 0 100px 0;
             overflow: hidden;
             /* 这里一定要用整张背景 100% 铺满宽度，不能只贴右上角，否则洞窟图会被缩没 */
             background: url('../assets/images/mogao1/ChatGPT Image 2026年5月15日 19_21_37.png') no-repeat center top;
@@ -1387,52 +1107,51 @@
 </head>
 <body>
 <div class="page-wrap">
-    <header class="main-header">
-        <div class="logo-area">
-            <img class="logo-img" src="../assets/images/mogao1/logo-mark.png" alt="logo">
-            <div class="logo-text">
-                <h1>敦煌·拾光</h1>
-                <p>DUNHUANG CULTURE</p>
-            </div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">✺</div>
+        <div>
+          <div class="brand-title">敦煌·拾光</div>
+          <div class="brand-sub">DUNHUANG CULTURE</div>
         </div>
+      </div>
 
-        <nav>
-            <ul>
-                <li><a href="../welcome.html?view=home">首页</a></li>
-                <li><a href="./community.html">敦煌溯源</a></li>
-                <li class="has-dropdown">
-                    <a href="./mogao1.html" class="active">莫高云境</a>
-                    <div class="nav-dropdown">
-                        <a class="current" href="./mogao1.html">云游洞窟</a>
-                        <a href="./mogao2.html">洞窟筛选</a>
-                    </div>
-                </li>
-                <li><a href="./treasure.html">万象宝库</a></li>
-                <li class="has-dropdown">
-                    <a href="./knowledge1.html">丝路智网</a>
-                    <div class="nav-dropdown">
-                        <a href="./knowledge1.html">知识图谱</a>
-                        <a href="./knowledge2.html">智能检索</a>
-                    </div>
-                </li>
-                <li><a href="./game.html">妙绘奇境</a></li>
-                <li><a href="./origin.html">九色鹿鸣</a></li>
-                <li><a href="./profile.html">我的藏窟</a></li>
-            </ul>
-        </nav>
+      <nav class="nav">
+        <a href="../welcome.html?view=home">首页</a>
+        <a href="./community.html">敦煌溯源</a>
+        <span class="nav-item has-dropdown">
+          <a href="./mogao1.html" class="active">莫高云境</a>
+          <span class="nav-dropdown">
+            <a href="./mogao1.html">云游洞窟</a>
+            <a href="./mogao2.html">洞窟筛选</a>
+          </span>
+        </span>
+        <a href="./wanxiang.html">万象宝库</a>
+        <span class="nav-item has-dropdown">
+          <a href="./knowledge1.html">丝路智网</a>
+          <span class="nav-dropdown">
+            <a href="./knowledge1.html">知识图谱</a>
+            <a href="./knowledge2.html">智能检索</a>
+          </span>
+        </span>
+        <a href="./game.html">妙绘奇境</a>
+        <a href="./origin.html">九色鹿鸣</a>
+        <a href="./profile.html">我的藏窟</a>
+      </nav>
 
-        <div class="header-right">
-            <div class="search-box">
-                <input type="text" placeholder="搜索敦煌内容、藏品、用户">
-            </div>
-            <div class="top-icon">♡</div>
-            <div class="top-icon">✉</div>
-            <div class="user-chip">
-                <img class="avatar" src="../assets/images/profile/lingxi-main.png" alt="用户头像">
-                <span>敦小妞</span>
-                <span class="level">Lv.6</span>
-            </div>
+      <div class="top-actions">
+        <div class="search">
+          <input type="text" placeholder="搜索敦煌内容、藏品、用户" />
+          <span>⌕</span>
         </div>
+        <button class="icon-btn">♡</button>
+        <button class="icon-btn">✉</button>
+        <div class="user-mini">
+          <img src="../assets/images/profile/lingxi-main.png" alt="用户头像">
+          <span>敦小妞</span>
+          <em>Lv.6</em>
+        </div>
+      </div>
     </header>
 
     <section class="hero-section" id="cloud-cave">
