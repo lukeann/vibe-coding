@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>敦煌 · 敦煌数字化展示</title>
+  <link rel="stylesheet" href="assets/css/welcome.css" />
+  <link rel="stylesheet" href="assets/css/ai-assistant.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <!-- 开场页 -->
+    <section class="intro-screen" id="introScreen">
+      <div class="intro-bg"></div>
+      <div class="intro-smoke smoke-a"></div>
+      <div class="intro-smoke smoke-b"></div>
+      <div class="intro-content">
+        <div class="seal">一场穿越千年的数字文化之旅</div>
+        <h1 class="ancient-title">敦煌·拾光</h1>
+        <p>千年飞天，梦回敦煌</p>
+        <button class="enter-btn" id="enterBtn">点击进入</button>
+      </div>
+      <button class="skip-btn" id="skipBtn">跳过开场</button>
+    </section>
+
+    <!-- 主界面 -->
+    <section class="home-screen" id="homeScreen">
+      <div class="home-bg"></div>
+      <div class="ink-mask"></div>
+      <div class="gold-particles" id="particles"></div>
+
+      <button class="back-home" id="backHome" aria-label="返回第二界面" title="返回">
+        <span></span>
+      </button>
+
+      <header class="top-bar">
+        <div class="brand-block">
+          <h2 class="ancient-title">敦煌·拾光</h2>
+          <span>千年飞天，梦回敦煌</span>
+        </div>
+      </header>
+
+      <div class="center-title">
+        <h1 class="ancient-title">敦煌·拾光</h1>
+        <p>千年飞天，梦回敦煌</p>
+      </div>
+
+      <button class="center-label" id="centerLabel" aria-label="进入敦煌七境">
+        <span>
+          <b>入境敦煌</b>
+          <small>开启千年之旅</small>
+        </span>
+      </button>
+
+      <section class="module-dock" id="moduleDock">
+        <div class="dock-head">
+          <div>
+            <span>云游导览</span>
+            <h3>敦煌七境</h3>
+          </div>
+          <button class="close-dock" id="closeDock">×</button>
+        </div>
+        <div class="module-grid" id="moduleGrid"></div>
+      </section>
+
+      <button class="ai-float" id="aiBtn" aria-label="打开敦煌 AI 助手">
+        <img src="assets/images/welcome/AI.png" alt="" />
+      </button>
+      <section class="ai-panel" id="aiPanel">
+        <div class="ai-head">
+          <strong>飞天灵犀</strong>
+          <button id="aiClose">×</button>
+        </div>
+        <div class="chat-row bot">你好呀，我是飞天灵犀。跟着我，一起听洞窟低语、寻壁画故事、解锁属于你的敦煌游线吧！</div>
+        <div class="quick-questions">
+          <button>从哪一境开始游览最合适？</button>
+          <button>带我认识一幅经典敦煌壁画</button>
+          <button>莫高窟壁画为什么需要数字化保护？</button>
+        </div>
+        <form class="ai-freeform" id="aiFreeform">
+          <label for="aiQuestion">自由提问</label>
+          <div>
+            <input id="aiQuestion" type="text" placeholder="问问飞天灵犀..." autocomplete="off" />
+            <button type="submit">问</button>
+          </div>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <script src="assets/js/welcome.js"></script>
+  <script src="assets/js/ai-assistant.js"></script>
+</body>
+</html>

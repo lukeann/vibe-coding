@@ -1,0 +1,662 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我的藏窟 - 敦煌文化</title>
+
+  <link rel="stylesheet" href="../assets/css/profile.css" />
+  <script src="../assets/js/profile.js" defer></script>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- 顶部导航 -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">✺</div>
+        <div>
+          <div class="brand-title">敦煌 · 拾光</div>
+          <div class="brand-sub">DUNHUANG CULTURE</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="../welcome.html?view=home">首页</a>
+        <a href="./community.html">敦煌溯源</a>
+        <span class="nav-item has-dropdown">
+                <a href="./mogao1.html">莫高云境</a>
+                <span class="nav-dropdown">
+                  <a href="./mogao1.html">云游洞窟</a>
+                  <a href="./mogao2.html">洞窟筛选</a>
+                </span>
+              </span>
+        <a href="./treasure.html">万象宝库</a>
+        <span class="nav-item has-dropdown">
+          <a href="./knowledge1.html">丝路智网</a>
+          <span class="nav-dropdown">
+            <a href="./knowledge1.html">知识图谱</a>
+            <a href="./knowledge2.html">智能检索</a>
+          </span>
+        </span>
+        <a href="./game.html">妙绘奇境</a>
+        <a href="./origin.html">九色鹿鸣</a>
+        <a href="./profile.html" class="active">我的藏窟</a>
+      </nav>
+
+      <div class="top-actions">
+        <div class="search">
+          <input type="text" placeholder="搜索敦煌内容、藏品、用户" />
+          <span>⌕</span>
+        </div>
+        <button class="icon-btn">♡</button>
+        <button class="icon-btn">✉</button>
+        <div class="user-mini">
+          <img src="../assets/images/profile/lingxi-main.png" alt="用户头像">
+          <span>敦小妞</span>
+          <em>Lv.6</em>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="label">敦煌集</div>
+        <h1 class="hero-title">我的藏窟</h1>
+        <p>守护文明瑰宝 · 探索千年之美</p>
+        <div class="hero-spark">
+          <span>个人影壁</span>
+          <span>洞窟记忆</span>
+          <span>数字藏品</span>
+        </div>
+        <button class="soft-btn">了解我的藏窟 <span>›</span></button>
+      </div>
+
+      <div class="hero-calligraphy" aria-label="藏窟题字">
+        <p class="calligraphy-line line-1" data-calligraphy-lines="一笔藏千年|云衣飞动处|拾光入卷">一笔藏千年</p>
+        <p class="calligraphy-line line-2" data-calligraphy-lines="一窟见万象|星河落壁间|照见敦煌">一窟见万象</p>
+        <p class="calligraphy-line line-3" data-calligraphy-lines="风起敦煌|壁上千秋|月照鸣沙">风起敦煌</p>
+        <p class="calligraphy-line line-4" data-calligraphy-lines="藏一页光|记一段梦|问一窟声">藏一页光</p>
+        <p class="calligraphy-line line-5" data-calligraphy-lines="飞天入梦|莲华生辉|金粉照衣">飞天入梦</p>
+        <p class="calligraphy-line line-6" data-calligraphy-lines="古卷微明|沙州有声|灯影成诗">古卷微明</p>
+        <p class="calligraphy-line line-7" data-calligraphy-lines="青绿未央|朱砂仍暖|淡金如昼">青绿未央</p>
+        <p class="calligraphy-line line-8" data-calligraphy-lines="云纹绕指|梵音入壁|鹿鸣归处">云纹绕指</p>
+        <p class="calligraphy-line line-9" data-calligraphy-lines="万象成藏|千秋可记|此心向光">万象成藏</p>
+        <p class="calligraphy-line line-10" data-calligraphy-lines="回看一眼|便是千年|莫负此卷">回看一眼</p>
+        <p class="calligraphy-line line-11" data-calligraphy-lines="烟岚入画|风沙成歌|旧梦微明">烟岚入画</p>
+        <p class="calligraphy-line line-12" data-calligraphy-lines="玉门春远|金铃轻响|云影归帆">玉门春远</p>
+      </div>
+
+      <img class="hero-girl" src="../assets/images/profile/lingxi-main.png" alt="灵犀">
+      <img class="hero-bunny" src="../assets/images/profile/lingxi-bunny.png" alt="灵兔">
+    </section>
+
+    <!-- 数据统计 -->
+    <section class="stats-panel">
+      <div class="stat-item">
+        <div class="stat-icon">楼</div>
+        <div>
+          <p>收藏总数</p>
+          <strong data-count="128">0</strong><span> 件</span>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="stat-item">
+        <div class="stat-icon">窟</div>
+        <div>
+          <p>探索藏洞</p>
+          <strong data-count="36">0</strong><span> 个</span>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="stat-item">
+        <div class="stat-icon">时</div>
+        <div>
+          <p>学习时长</p>
+          <strong data-count="268">0</strong><span> 小时</span>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="stat-item">
+        <div class="stat-icon">奖</div>
+        <div>
+          <p>获得成就</p>
+          <strong data-count="27">0</strong><span> 枚</span>
+        </div>
+      </div>
+      <div class="line"></div>
+      <div class="stat-item">
+        <div class="stat-icon">社</div>
+        <div>
+          <p>社区互动</p>
+          <strong data-count="1286">0</strong><span> 次</span>
+        </div>
+      </div>
+    </section>
+
+    <main class="content">
+
+      <!-- 藏库影壁 -->
+      <section class="wall-section" id="profileWall">
+        <div class="wall-copy">
+          <span class="wall-kicker">PERSONAL WALL</span>
+          <h2>
+            <span>把喜欢的敦煌</span>
+            <span>挂进自己的藏库</span>
+          </h2>
+          <p>像一面会呼吸的个人背景墙，收藏壁画、洞窟、丝路风景与每一次探索留下的光。</p>
+
+          <div class="wall-actions">
+            <button class="upload-btn" type="button" id="mockUpload">上传影像</button>
+            <input class="wall-upload-input" id="wallUploadInput" type="file" accept="image/*" multiple>
+            <button class="ghost-btn" type="button" id="shuffleWall">换一组</button>
+          </div>
+
+          <div class="wall-metrics" aria-label="藏库影壁数据">
+            <div>
+              <strong>12</strong>
+              <span>本周上墙</span>
+            </div>
+            <div>
+              <strong id="wallTotalCount">8</strong>
+              <span>轮播背景</span>
+            </div>
+            <div>
+              <strong>96%</strong>
+              <span>审美契合</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="wall-showcase">
+          <div class="wall-stage" id="wallStage">
+            <article class="wall-slide active" data-title="莫高窟第217窟" data-note="初唐壁画的暖金、青绿与人物衣褶，都适合成为今日封面。">
+              <img src="../assets/images/profile/treasure-01.png" alt="莫高窟第217窟壁画">
+              <div class="wall-caption">
+                <span>01 / 今日封面</span>
+                <h3>莫高窟第217窟</h3>
+                <p>初唐壁画的暖金、青绿与人物衣褶，都适合成为今日封面。</p>
+              </div>
+            </article>
+
+            <article class="wall-slide" data-title="飞天长卷" data-note="云气像从壁面掠过，给藏库留下一段轻盈的飞行轨迹。">
+              <img src="../assets/images/game/module-music.png" alt="飞天主题插画">
+              <div class="wall-caption">
+                <span>02 / 学习记忆</span>
+                <h3>飞天长卷</h3>
+                <p>云气像从壁面掠过，给藏库留下一段轻盈的飞行轨迹。</p>
+              </div>
+            </article>
+
+            <article class="wall-slide" data-title="九色鹿鸣" data-note="故事感更强的一张，适合用作个人主页的情绪背景。">
+              <img src="../assets/images/game/module-deer.png" alt="九色鹿主题图">
+              <div class="wall-caption">
+                <span>03 / 故事收藏</span>
+                <h3>九色鹿鸣</h3>
+                <p>故事感更强的一张，适合用作个人主页的情绪背景。</p>
+              </div>
+            </article>
+
+            <article class="wall-slide" data-title="洞窟金光" data-note="把云游洞窟里最有仪式感的一帧收进私人影壁。">
+              <img src="../assets/images/mogao1/thumb-320.png" alt="莫高窟第320窟">
+              <div class="wall-caption">
+                <span>04 / 洞窟影像</span>
+                <h3>洞窟金光</h3>
+                <p>把云游洞窟里最有仪式感的一帧收进私人影壁。</p>
+              </div>
+            </article>
+
+            <article class="wall-slide" data-title="数字洞窟" data-note="更接近沉浸式展厅的视觉，适合作为藏库的科技感封面。">
+              <img src="../assets/images/community/overview/digital-cave.png" alt="数字洞窟展示">
+              <div class="wall-caption">
+                <span>05 / 数字保护</span>
+                <h3>数字洞窟</h3>
+                <p>更接近沉浸式展厅的视觉，适合作为藏库的科技感封面。</p>
+              </div>
+            </article>
+
+            <article class="wall-slide" data-title="壁画全景" data-note="横向构图像展开的长卷，让个人空间有博物馆感。">
+              <img src="../assets/images/community/overview/hero-mural.png" alt="敦煌壁画全景">
+              <div class="wall-caption">
+                <span>06 / 长卷背景</span>
+                <h3>壁画全景</h3>
+                <p>横向构图像展开的长卷，让个人空间有博物馆感。</p>
+              </div>
+            </article>
+
+            <article class="wall-slide" data-title="洞窟筛选" data-note="来自云境的洞窟图像，把探索路径也变成可展示的收藏。">
+              <img src="../assets/images/mogao2/cave45.png" alt="莫高窟第45窟">
+              <div class="wall-caption">
+                <span>07 / 精选洞窟</span>
+                <h3>洞窟筛选</h3>
+                <p>来自云境的洞窟图像，把探索路径也变成可展示的收藏。</p>
+              </div>
+            </article>
+
+            <article class="wall-slide" data-title="丝路远山" data-note="从敦煌溯源里抽出的远景，给个人藏库留一口辽阔的气。">
+              <img src="../assets/images/game/bg-main.png" alt="敦煌远山背景">
+              <div class="wall-caption">
+                <span>08 / 丝路远景</span>
+                <h3>丝路远山</h3>
+                <p>从敦煌溯源里抽出的远景，给个人藏库留一口辽阔的气。</p>
+              </div>
+            </article>
+
+            <button class="wall-nav wall-prev" type="button" aria-label="上一张">‹</button>
+            <button class="wall-nav wall-next" type="button" aria-label="下一张">›</button>
+
+            <div class="wall-status">
+              <span class="wall-index">01</span>
+              <div class="wall-progress"><i></i></div>
+              <span class="wall-total">08</span>
+            </div>
+          </div>
+
+          <div class="wall-thumbs" aria-label="影壁缩略图">
+            <button class="wall-thumb active" type="button" aria-label="查看莫高窟第217窟"><img src="../assets/images/profile/treasure-01.png" alt=""></button>
+            <button class="wall-thumb" type="button" aria-label="查看飞天长卷"><img src="../assets/images/game/module-music.png" alt=""></button>
+            <button class="wall-thumb" type="button" aria-label="查看九色鹿鸣"><img src="../assets/images/game/module-deer.png" alt=""></button>
+            <button class="wall-thumb" type="button" aria-label="查看洞窟金光"><img src="../assets/images/mogao1/thumb-320.png" alt=""></button>
+            <button class="wall-thumb" type="button" aria-label="查看数字洞窟"><img src="../assets/images/community/overview/digital-cave.png" alt=""></button>
+            <button class="wall-thumb" type="button" aria-label="查看壁画全景"><img src="../assets/images/community/overview/hero-mural.png" alt=""></button>
+            <button class="wall-thumb" type="button" aria-label="查看洞窟筛选"><img src="../assets/images/mogao2/cave45.png" alt=""></button>
+            <button class="wall-thumb" type="button" aria-label="查看丝路远山"><img src="../assets/images/game/bg-main.png" alt=""></button>
+          </div>
+        </div>
+
+        <div class="wall-marquee" aria-hidden="true">
+          <span>PRIVATE DUNHUANG WALL</span>
+          <span>UPLOAD MEMORY</span>
+          <span>CAVE LIGHT</span>
+          <span>MURAL COLLECTION</span>
+          <span>PRIVATE DUNHUANG WALL</span>
+          <span>UPLOAD MEMORY</span>
+          <span>CAVE LIGHT</span>
+          <span>MURAL COLLECTION</span>
+        </div>
+      </section>
+
+      <!-- 笔记专区 -->
+      <section class="curator-section notes-section">
+        <div class="section-head curator-head">
+          <h2>笔记专区</h2>
+          <p class="notes-subtitle">右侧记录灵感，左侧自动生成笔记牌堆轮转</p>
+        </div>
+
+        <div class="curator-grid">
+          <article class="curator-stage" id="curatorStage">
+            <img class="curator-bg active" src="../assets/images/mogao2/cave158.png" alt="莫高窟洞窟笔记背景">
+            <img class="curator-bg" src="../assets/images/profile/treasure-02.png" alt="敦煌壁画摘录背景">
+            <img class="curator-bg" src="../assets/images/community/overview/silkroad-map.png" alt="丝路灵感草稿背景">
+
+            <div class="curator-copy active">
+              <span>CAVE NOTE</span>
+              <h3>第285窟观察：藻井与人物衣褶的节奏</h3>
+              <p>入口处光线偏暗，壁面色彩从赭石过渡到青绿，人物队列的衣褶像连续的波纹，适合整理成“洞窟观看路线”。</p>
+              <div class="note-meta">
+                <b>#洞窟观察</b>
+                <b>#西魏</b>
+                <b>#待整理</b>
+              </div>
+            </div>
+            <div class="curator-copy">
+              <span>MURAL CLIP</span>
+              <h3>飞天色彩摘录：青绿、朱砂与淡金</h3>
+              <p>这组配色最适合做个人藏库封面。青绿负责轻盈，朱砂压住视觉重心，淡金像壁画边缘被灯光扫过。</p>
+              <div class="note-meta">
+                <b>#色彩摘录</b>
+                <b>#飞天</b>
+                <b>#可复用</b>
+              </div>
+            </div>
+            <div class="curator-copy">
+              <span>IDEA DRAFT</span>
+              <h3>下一次创作：把丝路地图做成动态书签</h3>
+              <p>沿路线点亮收藏过的洞窟，用一条金色轨迹串起学习、社区发布和游戏成就，形成可分享的个人敦煌手账。</p>
+              <div class="note-meta">
+                <b>#灵感草稿</b>
+                <b>#丝路地图</b>
+                <b>#待实现</b>
+              </div>
+            </div>
+
+            <div class="curator-palette" aria-hidden="true">
+              <i style="--tone:#1f5d6f"></i>
+              <i style="--tone:#d7a354"></i>
+              <i style="--tone:#9b4d35"></i>
+              <i style="--tone:#efe0bd"></i>
+            </div>
+          </article>
+
+          <aside class="curator-side">
+            <form class="note-composer" id="noteComposer">
+              <span>生成一张笔记影像</span>
+              <input id="noteTitleInput" type="text" maxlength="28" placeholder="标题，例如：第45窟衣褶观察">
+              <textarea id="noteBodyInput" maxlength="120" placeholder="记录洞窟细节、壁画色彩、学习灵感……"></textarea>
+              <label class="note-image-picker" for="noteImageInput">
+                <input id="noteImageInput" type="file" accept="image/*">
+                <b>上传配图</b>
+                <em id="noteImageName">未选择图片时，将使用敦煌背景</em>
+              </label>
+              <div class="note-compose-actions">
+                <select id="noteTypeInput" aria-label="笔记类型">
+                  <option value="洞窟速记">洞窟速记</option>
+                  <option value="壁画摘录">壁画摘录</option>
+                  <option value="灵感草稿">灵感草稿</option>
+                </select>
+                <button type="submit">生成到左侧</button>
+              </div>
+            </form>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 我的藏窟 -->
+      <section class="card-section">
+        <div class="section-head">
+          <h2>我的收藏</h2>
+          <a href="./treasure.html">全部藏品 ›</a>
+        </div>
+
+        <div class="treasure-wrap">
+          <button class="slider-btn prev">‹</button>
+
+          <div class="treasure-list" id="treasureList">
+            <article class="treasure-card">
+              <div class="pic">
+                <img src="../assets/images/profile/treasure-01.png" alt="">
+                <button>▶</button>
+              </div>
+              <div class="treasure-info">
+                <div>
+                  <h3>莫高窟第217窟</h3>
+                  <p>初唐 · 壁画</p>
+                </div>
+                <span>♡ 23</span>
+              </div>
+            </article>
+
+            <article class="treasure-card">
+              <div class="pic">
+                <img src="../assets/images/profile/treasure-02.png" alt="">
+                <button>▶</button>
+              </div>
+              <div class="treasure-info">
+                <div>
+                  <h3>莫高窟第320窟</h3>
+                  <p>中唐 · 经变画</p>
+                </div>
+                <span>♡ 18</span>
+              </div>
+            </article>
+
+            <article class="treasure-card">
+              <div class="pic">
+                <img src="../assets/images/profile/treasure-03.png" alt="">
+                <button>▶</button>
+              </div>
+              <div class="treasure-info">
+                <div>
+                  <h3>莫高窟第45窟</h3>
+                  <p>北魏 · 佛像</p>
+                </div>
+                <span>♡ 32</span>
+              </div>
+            </article>
+
+            <article class="treasure-card">
+              <div class="pic">
+                <img src="../assets/images/profile/treasure-04.png" alt="">
+                <button>▶</button>
+              </div>
+              <div class="treasure-info">
+                <div>
+                  <h3>榆林窟第25窟</h3>
+                  <p>西夏 · 壁画</p>
+                </div>
+                <span>♡ 16</span>
+              </div>
+            </article>
+
+            <article class="treasure-card">
+              <div class="pic">
+                <img src="../assets/images/mogao1/thumb-217.png" alt="">
+                <button>▶</button>
+              </div>
+              <div class="treasure-info">
+                <div>
+                  <h3>莫高窟第217窟</h3>
+                  <p>初唐 · 经变画</p>
+                </div>
+                <span>♡ 41</span>
+              </div>
+            </article>
+
+            <article class="treasure-card">
+              <div class="pic">
+                <img src="../assets/images/mogao2/cave158.png" alt="">
+                <button>▶</button>
+              </div>
+              <div class="treasure-info">
+                <div>
+                  <h3>莫高窟第285窟</h3>
+                  <p>西魏 · 洞窟</p>
+                </div>
+                <span>♡ 29</span>
+              </div>
+            </article>
+
+            <article class="treasure-card">
+              <div class="pic">
+                <img src="../assets/images/community/overview/repair-real.png" alt="">
+                <button>▶</button>
+              </div>
+              <div class="treasure-info">
+                <div>
+                  <h3>壁画修复现场</h3>
+                  <p>现代 · 数字保护</p>
+                </div>
+                <span>♡ 52</span>
+              </div>
+            </article>
+
+            <article class="treasure-card">
+              <div class="pic">
+                <img src="../assets/images/origin/thumb-lotus-feitian.jpg" alt="">
+                <button>▶</button>
+              </div>
+              <div class="treasure-info">
+                <div>
+                  <h3>莲花飞天</h3>
+                  <p>丝路 · 图像谱系</p>
+                </div>
+                <span>♡ 37</span>
+              </div>
+            </article>
+          </div>
+
+          <button class="slider-btn next">›</button>
+        </div>
+      </section>
+
+      <!-- 丝路足迹长卷 -->
+      <section class="memory-section journey-panel">
+        <div class="section-head">
+          <h2>丝路足迹长卷</h2>
+          <a href="./community.html">查看足迹 ›</a>
+        </div>
+
+        <div class="memory-board">
+          <div class="memory-visual">
+            <img class="active" src="../assets/images/community/overview/history-panorama.png" alt="敦煌历史长卷">
+            <img src="../assets/images/mogao1/thumb-096.png" alt="莫高窟第96窟">
+            <img src="../assets/images/community/overview/modern-strip.png" alt="数字化保护">
+            <img src="../assets/images/game/activity-scroll.png" alt="游戏活动卷轴">
+            <div class="journey-caption">
+              <span>正在回放</span>
+              <h3>从初见壁画到数字守护</h3>
+              <p>系统把你的收藏、云游、学习和互动整理成一条可回放的丝路长卷。</p>
+            </div>
+            <div class="memory-glow"></div>
+          </div>
+
+          <div class="memory-rail journey-rail" aria-label="个人丝路时间轴">
+            <button class="memory-node active" type="button" data-memory-target="0" data-kicker="初见" data-title="从第一张壁画开始收藏" data-story="你把第一个洞窟细节收入藏库，个人长卷从这一刻展开。">
+              <i>01</i>
+              <strong>初见敦煌</strong>
+              <span>收藏第一张壁画 · 05-12</span>
+            </button>
+            <button class="memory-node" type="button" data-memory-target="1" data-kicker="云游" data-title="第96窟完成一次沉浸探索" data-story="从大佛到壁画边缘，系统记录了你的观看顺序与停留时间。">
+              <i>02</i>
+              <strong>云游洞窟</strong>
+              <span>完成第96窟探索 · 05-14</span>
+            </button>
+            <button class="memory-node" type="button" data-memory-target="2" data-kicker="守护" data-title="数字修复把细节重新点亮" data-story="参与修复互动后，你的藏库新增了修复前后对照片段。">
+              <i>03</i>
+              <strong>数字守护</strong>
+              <span>参与壁画修复互动 · 05-16</span>
+            </button>
+            <button class="memory-node" type="button" data-memory-target="3" data-kicker="成就" data-title="妙绘奇境解锁文化徽章" data-story="游戏、问答与收藏串成新的路线，成为年度报告中的高光。">
+              <i>04</i>
+              <strong>妙绘奇境</strong>
+              <span>解锁文化成就 · 今日</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="journey-summary">
+          <div><strong>36</strong><span>探索洞窟</span></div>
+          <div><strong>128</strong><span>收藏片段</span></div>
+          <div><strong>27</strong><span>成就徽章</span></div>
+          <div><strong>12</strong><span>本周笔记</span></div>
+        </div>
+      </section>
+
+      <!-- 学修工坊 -->
+      <section class="study-section study-studio">
+        <div class="section-head">
+          <h2>学修工坊</h2>
+          <a href="./knowledge1.html">进入学堂 ›</a>
+        </div>
+
+        <div class="study-studio-grid">
+          <article class="study-hero-card">
+            <div>
+              <span>最近学习</span>
+              <h3>飞天的起源与演变</h3>
+              <p>从印度天人、龟兹乐舞到敦煌飞天，追踪形象如何在丝路上生长。</p>
+              <div class="progress-row">
+                <span>学习进度</span>
+                <em>72%</em>
+              </div>
+              <div class="progress"><i style="width:72%"></i></div>
+            </div>
+            <img src="../assets/images/profile/study-flying.png" alt="飞天学习插画">
+          </article>
+
+          <article class="mission-board">
+            <span>今日任务</span>
+            <label><input type="checkbox" checked> 复习第45窟人物衣纹笔记</label>
+            <label><input type="checkbox" checked> 收藏一张经变画细节</label>
+            <label><input type="checkbox"> 完成飞天谱系小测</label>
+            <label><input type="checkbox"> 发布一条洞窟观察</label>
+          </article>
+
+          <article class="knowledge-board">
+            <span>知识手札</span>
+            <div class="knowledge-tags">
+              <b>飞天</b><b>经变画</b><b>供养人</b><b>藻井</b><b>九色鹿</b><b>数字修复</b>
+            </div>
+            <div class="study-counts">
+              <div><i>课</i><p>课程学习</p><strong>14</strong><span>课时</span></div>
+              <div><i>星</i><p>知识点收藏</p><strong>68</strong><span>个</span></div>
+              <div><i>记</i><p>笔记记录</p><strong>36</strong><span>条</span></div>
+              <div><i>问</i><p>问答互动</p><strong>12</strong><span>次</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 荣誉回响 -->
+      <section class="honor-community-panel">
+        <div class="section-head">
+          <h2>荣誉回响</h2>
+          <a href="./community.html">进入社区 ›</a>
+        </div>
+
+        <div class="honor-community-grid">
+          <article class="featured-honor">
+            <div class="badge badge-4"></div>
+            <span>本周代表成就</span>
+            <h3>敦煌守护者</h3>
+            <p>累计签到30天，并完成3次数字修复互动。</p>
+            <div class="honor-meter"><i style="width:86%"></i></div>
+          </article>
+
+          <div class="badge-list achievement-wall">
+            <div class="badge-card"><div class="badge badge-1"></div><h3>初识敦煌</h3><p>探索10个藏洞</p></div>
+            <div class="badge-card"><div class="badge badge-2"></div><h3>壁画知音</h3><p>收藏50件壁画</p></div>
+            <div class="badge-card"><div class="badge badge-3"></div><h3>文化传承者</h3><p>学习20门课程</p></div>
+            <div class="badge-card"><div class="badge badge-4"></div><h3>敦煌守护者</h3><p>累计签到30天</p></div>
+          </div>
+
+          <div class="community-stream">
+            <div class="post">
+              <img src="../assets/images/profile/treasure-01.png" alt="">
+              <div><h3>分享｜第45窟北魏佛像的细节之美</h3><p>05-18　♡ 32　评论 12</p></div>
+            </div>
+            <div class="post">
+              <img src="../assets/images/profile/treasure-02.png" alt="">
+              <div><h3>疑问｜关于敦煌画中的供养人</h3><p>05-17　♡ 18　评论 6</p></div>
+            </div>
+            <div class="post">
+              <img src="../assets/images/community/overview/repair-real.png" alt="">
+              <div><h3>记录｜今天完成了一次壁画修复模拟</h3><p>今日　♡ 46　评论 9</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 年度长卷 + 灵犀工坊 -->
+      <section class="closing-grid">
+        <article class="report-card report-scroll">
+          <div class="report-text">
+            <h2>个人报告 <span>2026年度报告</span></h2>
+            <p>你的探索足迹已延伸至36个藏洞，学习时长超过同龄人85%的用户，继续加油，文明因你而闪耀！</p>
+            <button>查看完整报告</button>
+          </div>
+
+          <div class="report-chart">
+            <div class="report-path">
+              <span class="path-line"></span>
+              <div class="path-step done"><i>01</i><span>探索者</span></div>
+              <div class="path-step done"><i>02</i><span>学习者</span></div>
+              <div class="path-step active"><i>03</i><span>传承者</span></div>
+              <div class="path-step"><i>04</i><span>守护者</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="skin-panel skin-workshop">
+          <div class="skin-title">
+            <h2>灵犀工坊 <span>LOCK</span></h2>
+            <p>解锁专属皮肤，让灵犀陪伴你更深入地探索敦煌之美。</p>
+            <button>解锁更多</button>
+          </div>
+
+          <div class="skin-list">
+            <div class="skin active skin-1"><span>使用中</span></div>
+            <div class="skin skin-2"></div>
+            <div class="skin skin-3"></div>
+            <div class="skin skin-4"></div>
+          </div>
+        </article>
+      </section>
+
+    </main>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>智能文献检索</title>
+  <link rel="stylesheet" href="../assets/css/knowledge2.css" />
+  <link rel="stylesheet" href="../assets/css/ai-assistant.css" />
+</head>
+
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">✺</div>
+        <div>
+          <div class="brand-title">敦煌 · 拾光</div>
+          <div class="brand-sub">DUNHUANG CULTURE</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="主导航">
+        <a href="../welcome.html?view=home">首页</a>
+        <a href="./community.html">敦煌溯源</a>
+        <span class="nav-item has-dropdown">
+          <a href="./mogao1.html">莫高云境</a>
+          <span class="nav-dropdown">
+            <a href="./mogao1.html">云游洞窟</a>
+            <a href="./mogao2.html">洞窟筛选</a>
+          </span>
+        </span>
+        <a href="./treasure.html">万象宝库</a>
+        <span class="nav-item has-dropdown">
+          <a class="active" href="./knowledge1.html">丝路智网</a>
+          <span class="nav-dropdown">
+            <a href="./knowledge1.html">知识图谱</a>
+            <a class="active" href="./knowledge2.html" aria-current="page">智能检索</a>
+          </span>
+        </span>
+        <a href="./game.html">妙绘奇境</a>
+        <a href="./origin.html">九色鹿鸣</a>
+        <a href="./profile.html">我的藏窟</a>
+      </nav>
+
+      <div class="top-actions">
+        <div class="search">
+          <input type="text" placeholder="搜索敦煌内容、藏品、用户" />
+          <span>⌕</span>
+        </div>
+        <button class="icon-btn" type="button" aria-label="通知">✉</button>
+        <div class="user-mini">
+          <img src="../assets/images/profile/lingxi-main.png" alt="用户头像">
+          <span>敦小妞</span>
+          <em>Lv.6</em>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- 标题 + 搜索 -->
+      <section class="hero">
+        <div class="hero-title">
+          <i></i>
+          <div>
+            <h1>智能文献检索</h1>
+            <p>基于语义理解与知识图谱的智能检索，支持多维度筛选与可视化分析，助力敦煌学术研究。</p>
+          </div>
+        </div>
+
+        <div class="search-area">
+          <div class="search-box">
+            <button type="button" class="field-btn">
+              全部字段
+              <span>⌄</span>
+            </button>
+            <input type="text" value=" " />
+            <button type="button" class="clear-btn">×</button>
+            <button type="button" class="search-btn">检索</button>
+          </div>
+
+          <div class="hot-tags">
+            <span>热门搜索：</span>
+            <button>莫高窟</button>
+            <button>第61窟</button>
+            <button>张大千</button>
+            <button>敦煌写经</button>
+            <button>敦煌社会史</button>
+            <button>经变画</button>
+            <button>飞天</button>
+            <button>供养人</button>
+          </div>
+        </div>
+
+        <div class="hero-tools">
+          <button type="button">◴ 检索历史</button>
+          <button type="button">☆ 我的收藏</button>
+          <button type="button">⚙ 检索设置</button>
+        </div>
+      </section>
+
+      <!-- 主体三栏 -->
+      <section class="layout">
+        <!-- 左侧筛选 -->
+        <aside class="filter-card card">
+          <div class="card-head">
+            <h3>高级筛选</h3>
+            <button type="button">收起⌃</button>
+          </div>
+
+          <div class="filter-section">
+            <div class="filter-title">
+              <strong>时间范围</strong>
+              <span>ⓘ</span>
+            </div>
+
+            <div class="year-row">
+              <input placeholder="起始年份" />
+              <b>-</b>
+              <input placeholder="结束年份" />
+            </div>
+
+            <div class="year-tabs">
+              <button class="active">全部</button>
+              <button>近5年</button>
+              <button>近10年</button>
+              <button>近20年</button>
+            </div>
+
+            <div class="mini-chart">
+              <i style="height: 20px"></i>
+              <i style="height: 32px"></i>
+              <i style="height: 43px"></i>
+              <i style="height: 48px"></i>
+              <i style="height: 37px"></i>
+              <i style="height: 55px"></i>
+              <i style="height: 66px"></i>
+              <i style="height: 42px"></i>
+              <i style="height: 53px"></i>
+              <i style="height: 78px"></i>
+              <i style="height: 56px"></i>
+              <i style="height: 69px"></i>
+              <i style="height: 92px"></i>
+              <i style="height: 62px"></i>
+              <i style="height: 82px"></i>
+              <i style="height: 54px"></i>
+              <i style="height: 96px"></i>
+              <i style="height: 72px"></i>
+              <i style="height: 86px"></i>
+              <i style="height: 64px"></i>
+            </div>
+
+            <div class="year-scale">
+              <span>1900</span>
+              <span>1930</span>
+              <span>1960</span>
+              <span>1990</span>
+              <span>2024</span>
+            </div>
+          </div>
+
+          <div class="filter-section">
+            <div class="filter-title">
+              <strong>资源类型</strong>
+              <button type="button">全部清除</button>
+            </div>
+
+            <label><input type="checkbox" checked /> 期刊论文 <em>3,259</em></label>
+            <label><input type="checkbox" checked /> 学位论文 <em>1,025</em></label>
+            <label><input type="checkbox" /> 会议论文 <em>342</em></label>
+            <label><input type="checkbox" /> 图书 <em>512</em></label>
+            <label><input type="checkbox" /> 研究报告 <em>156</em></label>
+            <label><input type="checkbox" /> 古籍文献 <em>245</em></label>
+          </div>
+
+          <div class="filter-section">
+            <div class="filter-title">
+              <strong>被引量</strong>
+              <span>ⓘ</span>
+            </div>
+
+            <div class="citation-row">
+              <input placeholder="最小值" />
+              <b>至</b>
+              <input placeholder="最大值" />
+            </div>
+
+            <label><input type="checkbox" /> 1000以上 <em>126</em></label>
+            <label><input type="checkbox" /> 500-1000 <em>534</em></label>
+            <label><input type="checkbox" /> 100-500 <em>1,248</em></label>
+            <label><input type="checkbox" /> 50-100 <em>1,671</em></label>
+            <label><input type="checkbox" /> 50以下 <em>2,417</em></label>
+          </div>
+
+          <div class="folds">
+            <button type="button">数据来源 <span>⌄</span></button>
+            <button type="button">学科分类 <span>⌄</span></button>
+            <button type="button">语言 <span>⌄</span></button>
+            <button type="button">作者 <span>⌄</span></button>
+            <button type="button">机构 <span>⌄</span></button>
+            <button type="button">主题词 <span>⌄</span></button>
+          </div>
+
+          <div class="filter-actions">
+            <button class="reset" type="button">重置</button>
+            <button class="submit" type="button">筛选</button>
+          </div>
+        </aside>
+
+        <!-- 中间结果 -->
+        <section class="result-card card">
+          <div class="result-head">
+            <p>共检索到 <strong>5,294</strong> 条结果</p>
+
+            <div class="result-tools">
+              <span>相关度</span>
+              <select>
+                <option>筛选</option>
+                <option>时间最新</option>
+                <option>被引最高</option>
+              </select>
+              <button type="button">▦</button>
+              <button type="button">☷</button>
+              <button type="button">导出⌄</button>
+            </div>
+          </div>
+
+          <div class="assist-bar">
+            <button type="button">AI 扩展检索</button>
+            <button type="button">生成研究综述</button>
+            <button type="button">可视化分析</button>
+            <button type="button">批量导出</button>
+          </div>
+
+          <div class="paper-list" id="paperList"></div>
+
+          <div class="pagination">
+            <span>共 5,294 条</span>
+            <button>‹</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <b>...</b>
+            <button>53</button>
+            <button>›</button>
+            <label>
+              每页
+              <select>
+                <option>10 条</option>
+                <option>20 条</option>
+                <option>30 条</option>
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <!-- 右侧分析 -->
+        <aside class="right-column">
+          <section class="side-card card ai-card">
+            <div class="side-head">
+              <h3>AI 智能推荐</h3>
+              <button>换一换 ↻</button>
+            </div>
+
+            <ol class="ai-list">
+              <li>敦煌石窟艺术中的色彩运用研究</li>
+              <li>吐鲁番文书与敦煌文献的比较研究</li>
+              <li>敦煌佛教艺术的伦理与形象</li>
+              <li>晚唐五代时期敦煌社会经济研究</li>
+              <li>敦煌壁画中的乐舞形象研究</li>
+            </ol>
+          </section>
+
+          <section class="side-card card trend-card">
+            <div class="side-head">
+              <h3>研究趋势</h3>
+              <button>更多 ›</button>
+            </div>
+
+            <div class="trend-chart">
+              <div class="legend">
+                <span><i></i>发文量</span>
+                <span><i class="green"></i>被引量</span>
+              </div>
+
+              <svg viewBox="0 0 330 168" preserveAspectRatio="none" aria-label="研究趋势折线图">
+                <g class="grid">
+                  <line x1="38" y1="20" x2="315" y2="20"></line>
+                  <line x1="38" y1="52" x2="315" y2="52"></line>
+                  <line x1="38" y1="84" x2="315" y2="84"></line>
+                  <line x1="38" y1="116" x2="315" y2="116"></line>
+                  <line x1="38" y1="148" x2="315" y2="148"></line>
+                </g>
+                <g class="axis-labels">
+                  <text x="2" y="24">1,500</text>
+                  <text x="9" y="56">1,200</text>
+                  <text x="15" y="88">900</text>
+                  <text x="15" y="120">600</text>
+                  <text x="15" y="152">300</text>
+                  <text x="28" y="164">0</text>
+                  <text x="38" y="164">1980</text>
+                  <text x="92" y="164">1990</text>
+                  <text x="146" y="164">2000</text>
+                  <text x="200" y="164">2010</text>
+                  <text x="254" y="164">2020</text>
+                  <text x="296" y="164">2024</text>
+                </g>
+                <polyline points="38,136 66,130 92,122 120,124 148,118 176,112 196,94 214,72 230,38 246,30 260,40 274,28 292,18 308,36 315,42"></polyline>
+                <polyline class="green-line" points="38,139 66,136 92,132 120,128 148,126 176,120 196,108 214,96 230,86 246,72 260,66 274,48 292,46 308,56 315,58"></polyline>
+              </svg>
+            </div>
+          </section>
+
+          <section class="side-card card keyword-card">
+            <div class="side-head">
+              <h3>关键词云</h3>
+              <button>更多 ›</button>
+            </div>
+
+            <div class="word-cloud">
+              <span class="kw orange small" style="left: 18px; top: 34px;">佛教信仰</span>
+              <span class="kw green" style="left: 34px; top: 70px;">佛教艺术</span>
+              <span class="kw terracotta" style="left: 20px; top: 106px;">多元文化</span>
+              <span class="kw big" style="left: 124px; top: 30px;">敦煌壁画</span>
+              <span class="kw huge" style="left: 94px; top: 74px;">供养人</span>
+              <span class="kw orange" style="right: 32px; top: 40px;">敦煌写经</span>
+              <span class="kw terracotta strong" style="right: 52px; top: 82px;">莫高窟</span>
+              <span class="kw green small" style="left: 122px; bottom: 18px;">石窟艺术</span>
+              <span class="kw orange small" style="right: 94px; bottom: 20px;">文化交流</span>
+              <span class="kw green tiny" style="right: 22px; bottom: 18px;">题画题记</span>
+              <span class="kw muted tiny" style="right: 18px; top: 72px;">数字保护</span>
+              <span class="kw muted tiny" style="right: 12px; top: 108px;">经变画</span>
+            </div>
+          </section>
+
+          <section class="side-card card topic-card">
+            <div class="side-head">
+              <h3>相关主题</h3>
+              <button>更多 ›</button>
+            </div>
+
+            <div class="topic-map">
+              <svg viewBox="0 0 330 185" aria-label="相关主题关系图">
+                <g class="topic-lines">
+                  <line x1="165" y1="98" x2="166" y2="34"></line>
+                  <line x1="165" y1="98" x2="64" y2="76"></line>
+                  <line x1="165" y1="98" x2="270" y2="76"></line>
+                  <line x1="165" y1="98" x2="64" y2="146"></line>
+                  <line x1="165" y1="98" x2="270" y2="146"></line>
+                </g>
+                <g class="node node-blue" tabindex="0" style="--tx: 0px; --ty: -5px;">
+                  <circle class="halo" cx="166" cy="34" r="17"></circle>
+                  <circle class="dot" cx="166" cy="34" r="6"></circle>
+                </g>
+                <g class="node node-green" tabindex="0" style="--tx: -5px; --ty: 0px;">
+                  <circle class="halo" cx="64" cy="76" r="16"></circle>
+                  <circle class="dot" cx="64" cy="76" r="6"></circle>
+                </g>
+                <g class="node node-green" tabindex="0" style="--tx: 5px; --ty: 0px;">
+                  <circle class="halo" cx="270" cy="76" r="16"></circle>
+                  <circle class="dot" cx="270" cy="76" r="6"></circle>
+                </g>
+                <g class="node node-red" tabindex="0" style="--tx: -4px; --ty: 4px;">
+                  <circle class="halo" cx="64" cy="146" r="16"></circle>
+                  <circle class="dot" cx="64" cy="146" r="6"></circle>
+                </g>
+                <g class="node node-green" tabindex="0" style="--tx: 4px; --ty: 4px;">
+                  <circle class="halo" cx="270" cy="146" r="16"></circle>
+                  <circle class="dot" cx="270" cy="146" r="6"></circle>
+                </g>
+                <ellipse class="center-halo" cx="165" cy="101" rx="48" ry="33"></ellipse>
+              </svg>
+
+              <button class="topic-label center">敦煌艺术研究</button>
+              <button class="topic-label label-top">数字保护研究</button>
+              <button class="topic-label label-left">壁画艺术研究</button>
+              <button class="topic-label label-right">文化交流研究</button>
+              <button class="topic-label label-bottom-left">宗教学研究</button>
+              <button class="topic-label label-bottom-mid">社会学研究</button>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <script src="../assets/js/knowledge2.js"></script>
+  <script src="../assets/js/ai-assistant.js"></script>
+</body>
+</html>

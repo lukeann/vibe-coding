@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>知识图谱 - 丝路智网</title>
+  <link rel="stylesheet" href="../assets/css/knowledge-graph.css" />
+  <link rel="stylesheet" href="../assets/css/knowledge-graph-polish.css" />
+  <link rel="stylesheet" href="../assets/css/ai-assistant.css" />
+  <style>
+    /* Keep the shared Lingxi assistant consistent on this dense graph page. */
+    body .ai-float {
+      right: 26px;
+      bottom: 24px;
+      z-index: 220;
+      width: 138px;
+      height: 138px;
+      overflow: visible;
+      background: transparent;
+      box-shadow: none;
+      transform-origin: 42% 58%;
+    }
+
+    body .ai-float::before,
+    body .ai-float::after,
+    body .ai-freeform button::before,
+    body .ai-freeform button::after {
+      content: none !important;
+      display: none !important;
+    }
+
+    body .ai-float img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
+    body .ai-panel {
+      right: 180px;
+      bottom: 44px;
+      z-index: 230;
+      width: 460px;
+      max-width: calc(100vw - 220px);
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+      box-sizing: border-box;
+      transform: translateY(18px);
+    }
+
+    body .ai-panel.show {
+      transform: translateY(0);
+    }
+
+    body .ai-head button {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      overflow: visible;
+      transform: none;
+    }
+
+    body .ai-head button::before,
+    body .ai-head button::after {
+      content: "" !important;
+      display: block !important;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 3;
+      width: 18px;
+      height: 1.5px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255, 240, 191, 0.9);
+      opacity: 1;
+      pointer-events: none;
+      transform-origin: center;
+    }
+
+    body .ai-head button::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    body .ai-head button::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    body .quick-questions button {
+      padding-left: 74px;
+      text-align: left;
+    }
+
+    body .quick-questions button::before {
+      content: "" !important;
+      display: block !important;
+      z-index: 2;
+      opacity: 1;
+    }
+
+    body .quick-questions button::after {
+      z-index: 2;
+    }
+
+    @media (max-width: 760px) {
+      body .ai-float {
+        right: 18px;
+        bottom: 18px;
+        width: 112px;
+        height: 112px;
+      }
+
+      body .ai-panel {
+        right: 16px;
+        bottom: 118px;
+        width: calc(100vw - 32px);
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-bg"></div>
+
+  <!-- 顶部导航 -->
+  <header class="topbar">
+    <a class="brand" href="../welcome.html?view=home" aria-label="返回首页">
+      <div class="brand-logo">✺</div>
+      <div>
+        <div class="brand-title">敦煌 · 拾光</div>
+        <div class="brand-sub">DUNHUANG CULTURE</div>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="主导航">
+      <a href="../welcome.html?view=home">首页</a>
+      <a href="./community.html">敦煌溯源</a>
+      <span class="nav-item has-dropdown">
+        <a href="./mogao1.html">莫高云境</a>
+        <span class="nav-dropdown">
+          <a href="./mogao1.html">云游洞窟</a>
+          <a href="./mogao2.html">洞窟筛选</a>
+        </span>
+      </span>
+      <a href="./treasure.html">万象宝库</a>
+      <span class="nav-item has-dropdown">
+        <a class="active" href="./knowledge1.html" aria-current="page">丝路智网</a>
+        <span class="nav-dropdown">
+          <a class="active" href="./knowledge1.html" aria-current="page">知识图谱</a>
+          <a href="./knowledge2.html">智能检索</a>
+        </span>
+      </span>
+      <a href="./game.html">妙绘奇境</a>
+      <a href="./origin.html">九色鹿鸣</a>
+      <a href="./profile.html">我的藏窟</a>
+    </nav>
+
+    <div class="top-actions">
+      <div class="search">
+        <input type="text" placeholder="搜索敦煌内容、藏品、用户" />
+        <span>⌕</span>
+      </div>
+      <button class="icon-btn" type="button" aria-label="收藏">♡</button>
+      <button class="icon-btn" type="button" aria-label="消息">✉</button>
+      <a class="user-mini" href="./profile.html" aria-label="进入我的藏窟">
+        <img src="../assets/images/profile/lingxi-main.png" alt="用户头像">
+        <span>敦小妞</span>
+        <em>Lv.6</em>
+      </a>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="main-layout">
+      <aside class="filter-panel panel">
+        <div class="panel-title">
+          <h3>筛选条件</h3>
+          <button type="button">清空</button>
+        </div>
+
+        <div class="filter-list">
+          <div class="filter-item">
+            <div class="filter-head"><span>♙ 年代</span><em>全部</em></div>
+            <p>唐、五代、宋、西夏、元、明</p>
+          </div>
+          <div class="filter-item">
+            <div class="filter-head"><span>▣ 洞窟</span><em>735</em></div>
+            <p>莫高窟、榆林窟、西千佛洞...</p>
+          </div>
+          <div class="filter-item">
+            <div class="filter-head"><span>▧ 类型</span><em>全部</em></div>
+            <p>壁画、彩塑、经卷、遗址、建筑...</p>
+          </div>
+          <div class="filter-item">
+            <div class="filter-head"><span>♨ 主题</span><em>全部</em></div>
+            <p>佛经故事、本生故事、历史故事...</p>
+          </div>
+          <div class="filter-item">
+            <div class="filter-head"><span>✿ 材质</span><em>全部</em></div>
+            <p>绢帛、纸本、泥塑、木构、矿物颜料...</p>
+          </div>
+          <div class="filter-item">
+            <div class="filter-head"><span>▤ 文献类型</span><em>全部</em></div>
+            <p>经卷、绢画、文书、题记论文...</p>
+          </div>
+          <div class="filter-item">
+            <div class="filter-head"><span>◈ 编年纪年</span><em>全部</em></div>
+            <p>北魏、隋唐、五代、宋、西夏...</p>
+          </div>
+          <div class="filter-item">
+            <div class="filter-head"><span>◎ 关联人物</span><em>全部</em></div>
+            <p>僧人、供养人、画工、工匠...</p>
+          </div>
+        </div>
+
+        <div class="switch-list">
+          <label><span>仅显示有全文资源</span><input type="checkbox" checked /></label>
+          <label><span>仅显示有文献资料</span><input type="checkbox" /></label>
+        </div>
+
+        <div class="filter-actions">
+          <button class="primary" type="button">应用筛选</button>
+          <button type="button">重置</button>
+        </div>
+      </aside>
+
+      <section class="graph-card panel">
+        <div class="graph-toolbar">
+          <label class="search-box">
+            <span>⌕</span>
+            <input id="nodeSearch" type="text" placeholder="搜索关键词（如 洞窟名、壁画、人物等）" />
+          </label>
+          <div class="toolbar-actions">
+            <label>视图：<select><option>关系图</option><option>层级图</option><option>时间图</option></select></label>
+            <label>筛选：<select><option>智能推荐</option><option>高关联</option><option>最新更新</option></select></label>
+          </div>
+        </div>
+
+        <div class="graph-wrap">
+          <div class="graph-hint">
+            <span>点击节点查看详情</span>
+            <i class="legend-dot orange"></i><em>宗教/艺术</em>
+            <i class="legend-dot green"></i><em>遗产/路线</em>
+            <i class="legend-dot blue"></i><em>文献/保护</em>
+          </div>
+          <svg class="knowledge-svg" viewBox="0 0 860 580" preserveAspectRatio="xMidYMid meet" aria-label="敦煌文化知识图谱">
+            <defs>
+              <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#8a5d35" flood-opacity="0.18"/>
+              </filter>
+              <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#d87a2d"/>
+              </marker>
+              <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#4a988c"/>
+              </marker>
+            </defs>
+            <g class="links"></g>
+            <g class="labels"></g>
+            <g class="nodes"></g>
+          </svg>
+          <div class="zoom-tools">
+            <button type="button" aria-label="放大图谱" title="放大">＋</button>
+            <button type="button" aria-label="缩小图谱" title="缩小">－</button>
+            <button type="button" aria-label="重置视图" title="重置视图">⛶</button>
+            <button type="button" aria-label="聚焦核心节点" title="聚焦核心">◎</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="detail-panel panel">
+        <div class="detail-head">
+          <div>
+            <h3 id="detailTitle">莫高窟</h3>
+            <span id="detailBadge">第285窟</span>
+          </div>
+          <button type="button">×</button>
+        </div>
+
+        <p class="detail-desc" id="detailDesc">盛唐时期洞窟，主室壁画以“经变故事”为主题，包含大量历史题记与人物关系，是佛教艺术与社会文化交织的重要节点。</p>
+
+        <div class="info-block">
+          <h4>基本信息</h4>
+          <dl>
+            <dt>年代</dt><dd id="infoAge">盛唐</dd>
+            <dt>建造时间</dt><dd id="infoYear">705年</dd>
+            <dt>开凿者</dt><dd>不详</dd>
+            <dt>保护状态</dt><dd>保存较好</dd>
+          </dl>
+        </div>
+
+        <div class="tag-block">
+          <h4>相关标签</h4>
+          <div id="detailTags">
+            <span>沿年经变</span><span>经变画</span><span>盛唐</span><span>飞天</span><span>供养人</span><span>壁画</span><span>彩塑</span>
+          </div>
+        </div>
+
+        <div class="metric-boxes">
+          <article><p>关联节点</p><strong id="m1">12,456</strong></article>
+          <article><p>关联文献</p><strong id="m2">3,876</strong></article>
+          <article><p>关联要素</p><strong id="m3">4,215</strong></article>
+        </div>
+
+      </aside>
+    </section>
+
+    <section class="middle-row">
+      <article class="panel view-switch">
+        <div class="module-head">
+          <div>
+            <h3>图谱便捷切换</h3>
+            <p>关系、人物、洞窟、经变、文献与时空视图</p>
+          </div>
+          <span>6 类视图</span>
+        </div>
+        <div class="view-grid">
+          <button class="active"><b>⌘</b><span>关系图</span></button>
+          <button><b>♙</b><span>人物图谱</span></button>
+          <button><b>⌂</b><span>洞窟图谱</span></button>
+          <button><b>❉</b><span>经变图谱</span></button>
+          <button><b>▤</b><span>文献图谱</span></button>
+          <button><b>◎</b><span>时空图谱</span></button>
+        </div>
+      </article>
+
+      <article class="panel path-panel">
+        <div class="module-head">
+          <div>
+            <h3>关联路径分析</h3>
+            <p>从核心节点追踪洞窟、图像、文献与人物的语义链路</p>
+          </div>
+          <span>置信度 92%</span>
+        </div>
+        <div class="path-controls">
+          <label>起点节点 <input value="敦煌" /></label>
+          <label>结束节点 <input value="飞天乐舞" /></label>
+          <label>关联类型 <select><option>全部</option></select></label>
+          <label>路径长度 <input value="3" /></label>
+          <button type="button">开始分析</button>
+        </div>
+        <div class="path-line">
+          <span>敦煌</span><i></i><span>莫高窟</span><i></i><span>壁画</span><i></i><span>飞天形象</span><i></i><span>飞天乐舞</span>
+        </div>
+        <div class="path-insights">
+          <span><b>5</b> 节点</span>
+          <span><b>4</b> 关系</span>
+          <span><b>2</b> 文献支撑</span>
+          <span><b>12</b> 相关资源</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="card-grid">
+      <article class="panel doughnut-card">
+        <h3>数据分布概览</h3>
+        <div class="card-subline"><span>总量 358,942</span><span>6 类资源</span></div>
+        <div class="doughnut-wrap">
+          <div class="doughnut interactive-doughnut" aria-label="数据分布环形图">
+            <svg viewBox="0 0 140 140" role="img">
+              <circle class="doughnut-track" cx="70" cy="70" r="45"></circle>
+              <circle class="doughnut-segment s1" data-index="0" cx="70" cy="70" r="45" pathLength="100"></circle>
+              <circle class="doughnut-segment s2" data-index="1" cx="70" cy="70" r="45" pathLength="100"></circle>
+              <circle class="doughnut-segment s3" data-index="2" cx="70" cy="70" r="45" pathLength="100"></circle>
+              <circle class="doughnut-segment s4" data-index="3" cx="70" cy="70" r="45" pathLength="100"></circle>
+              <circle class="doughnut-segment s5" data-index="4" cx="70" cy="70" r="45" pathLength="100"></circle>
+              <circle class="doughnut-segment s6" data-index="5" cx="70" cy="70" r="45" pathLength="100"></circle>
+            </svg>
+          </div>
+          <ul>
+            <li data-index="0"><i class="c1"></i>壁画 33.1% 118,742</li>
+            <li data-index="1"><i class="c2"></i>彩塑 24.8% 88,992</li>
+            <li data-index="2"><i class="c3"></i>文献 19.3% 69,024</li>
+            <li data-index="3"><i class="c4"></i>经卷 12.7% 45,576</li>
+            <li data-index="4"><i class="c5"></i>建筑 6.1% 21,876</li>
+            <li data-index="5"><i class="c6"></i>其他 4.0% 14,732</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="panel ranking-card">
+        <h3>热门关联要素 TOP10</h3>
+        <div class="card-subline"><span>近 7 日热度</span><span>更新于今日</span></div>
+        <ol>
+          <li><span>莫高窟</span><b>35,892 条</b></li>
+          <li><span>供养人</span><b>18,456</b></li>
+          <li><span>飞天</span><b>16,782</b></li>
+          <li><span>法华经变</span><b>12,345</b></li>
+          <li><span>榆林窟</span><b>9,876</b></li>
+          <li><span>色彩</span><b>8,543</b></li>
+          <li><span>佛经故事</span><b>7,654</b></li>
+          <li><span>藏经洞</span><b>6,432</b></li>
+          <li><span>塑画技法</span><b>5,678</b></li>
+          <li><span>建筑时间</span><b>3,942</b></li>
+        </ol>
+      </article>
+
+      <article class="panel heatmap-card">
+        <h3>关键词云分布</h3>
+        <div class="card-subline"><span>语义聚类</span><span>点击筛选</span></div>
+        <div class="heat-controls"><label>短语节点 <select><option>全部</option></select></label><label>时间范围 <select><option>全部</option></select></label></div>
+        <div class="heatmap">
+          <span class="h1">飞天</span><span class="h2">壁画</span><span class="h3">供养人</span><span class="h4">莫高窟</span><span class="h5">经变</span>
+          <span class="h2">彩塑</span><span class="h5">题记</span><span class="h3">洞窟</span><span class="h4">建筑</span><span class="h1">敦煌</span>
+          <span class="h5">乐舞</span><span class="h3">社会史</span><span class="h2">文献</span><span class="h1">宗教</span><span class="h4">人物</span>
+          <span class="h2">唐代</span><span class="h1">壁画</span><span class="h3">经卷</span><span class="h5">修复</span><span class="h4">交流</span>
+        </div>
+      </article>
+
+      <article class="panel hot-card">
+        <h3>热度要素看板</h3>
+        <div class="card-subline"><span>实时波动</span><span>4 条趋势</span></div>
+        <div class="hot-list">
+          <p><b>🔥</b> 敦煌艺术数据总量 <span>今日 ↑12%</span></p>
+          <p><b>🔥</b> 经变主题关联性增强 <span>今日 ↑9%</span></p>
+          <p><b>🔥</b> 飞天形象热度上升 <span>今日 ↑15%</span></p>
+          <p><b>♙</b> 供养人多样性特征增强 <span>昨日 ↑6%</span></p>
+        </div>
+        <a href="javascript:void(0)">查看更多趋势 ›</a>
+      </article>
+    </section>
+
+    <section class="info-row">
+      <article class="panel discovery-card">
+        <div class="tabs"><h3>知识发现</h3><button class="active">热门洞窟</button><button>新发现</button><button>专题合集</button></div>
+        <div class="discovery-brief">
+          <div>
+            <span>本周新增洞察</span>
+            <strong>27</strong>
+          </div>
+          <div>
+            <span>高置信线索</span>
+            <strong>14</strong>
+          </div>
+          <div>
+            <span>待复核路径</span>
+            <strong>6</strong>
+          </div>
+        </div>
+        <div class="discovery-grid">
+          <div><em>图像演化</em><strong>基于飞天形象的演化脉络分析</strong><p><span>关联节点 1,234</span><span>发现时间 2024-05-01</span><span>热度 9,876</span></p><i>置信度 96%</i><button type="button">查看路径</button></div>
+          <div><em>社会史</em><strong>供养人社会构成与地域分布研究</strong><p><span>关联节点 2,345</span><span>发现时间 2024-04-28</span><span>热度 8,654</span></p><i>跨洞窟 18 组</i><button type="button">查看专题</button></div>
+          <div><em>经变传播</em><strong>法华经变图像在敦煌的传播与演变</strong><p><span>关联节点 3,456</span><span>发现时间 2024-04-25</span><span>热度 7,321</span></p><i>文献支撑 42 篇</i><button type="button">查看文献</button></div>
+        </div>
+      </article>
+
+      <article class="panel related-card">
+        <h3>相关推荐</h3>
+        <div class="recommend-tabs"><button class="active">相关主题</button><button>相关人物</button><button>相关洞窟</button><button>相关文献</button></div>
+        <div class="recommend-boxes">
+          <p><em>主题</em>飞天艺术专题<br/><b>关联资源 1,876</b><span>图像、乐舞、题记</span></p>
+          <p><em>专题</em>盛唐壁画特征研究<br/><b>关联资源 2,345</b><span>洞窟、经变、色彩</span></p>
+          <p><em>人物</em>供养人题记网络<br/><b>关联资源 986</b><span>家族、身份、年代</span></p>
+        </div>
+      </article>
+
+      <article class="panel history-card">
+        <div class="side-head"><h3>检索历史</h3><button>全部记录 ›</button></div>
+        <div class="history-summary"><strong>8</strong><span>条近期检索</span><em>最近更新 14:32</em></div>
+        <p><b>敦煌</b> 艺术关键词 <span>2024-05-06 14:32</span></p>
+        <p><b>法华经变</b> 莫高窟 <span>2024-05-06 10:15</span></p>
+        <p><b>飞天形象</b> 演变 <span>2024-05-05 16:48</span></p>
+        <p><b>供养人</b> 家族谱系 <span>2024-05-05 09:20</span></p>
+      </article>
+    </section>
+
+    <section class="analysis-row">
+      <article class="panel pie-panel">
+        <h3>图谱统计分析</h3>
+        <div class="analysis-note"><strong>核心实体</strong><span>人物与地点占比 51.9%</span></div>
+        <div class="pie-row"><div class="pie"><span>实体<br/><b>6类</b></span></div><ul><li><i></i>人物 28.3%</li><li><i></i>地点 23.6%</li><li><i></i>壁画 19.2%</li><li><i></i>文献 12.7%</li><li><i></i>建筑 8.4%</li><li><i></i>其他 4.2%</li></ul></div>
+      </article>
+      <article class="panel trend-panel">
+        <h3>时间演化趋势</h3>
+        <div class="analysis-note"><strong>盛唐峰值</strong><span>图像与题记同步增长</span></div>
+        <svg viewBox="0 0 330 150"><path d="M10,120 L325,120"></path><path d="M10,96 L325,96"></path><path d="M10,72 L325,72"></path><polyline points="10,110 55,98 100,94 145,72 180,28 220,72 260,96 300,80 325,93"></polyline><circle cx="180" cy="28" r="5"></circle><line x1="10" y1="120" x2="325" y2="120"></line></svg>
+        <div class="trend-axis"><span>北魏</span><span>隋唐</span><span>宋元</span><span>当代</span></div>
+      </article>
+      <article class="panel region-panel">
+        <h3>地域分布地图</h3>
+        <div class="bubble-row"><span>瓜州<br/>152,345</span><span>敦煌<br/>128,756</span><span>肃北<br/>66,215</span><span>青海<br/>45,732</span><span>新疆<br/>32,664</span></div>
+        <div class="region-bars"><i style="--v:88%"></i><i style="--v:74%"></i><i style="--v:42%"></i><i style="--v:31%"></i><i style="--v:24%"></i></div>
+        <p>节点总量（座、件、篇等）共 445,702 个</p>
+      </article>
+      <article class="panel standard-panel">
+        <h3>标准规范与知识引入</h3>
+        <div class="standard-summary"><strong>672</strong><span>项规范条目已接入</span></div>
+        <p>敦煌艺文知识体系 <span>共 156 项标准</span></p>
+        <p>国家文物局分类与编码标准 <span>共 78 项标准</span></p>
+        <p>丝绸之路地名规范数据库 <span>共 126 项标准</span></p>
+        <p>佛教人物与术语本体库 <span>共 312 项条目</span></p>
+      </article>
+    </section>
+
+    <section class="literature-row panel">
+      <div class="row-head"><h3>文献聚类</h3><div class="lit-summary"><span>总量 43,850 篇</span><span>覆盖 5 个知识域</span><span>本月新增 326 篇</span></div><button>以文献数量统计</button></div>
+      <div class="lit-grid">
+        <article style="--p:24.6%"><strong>佛教经变文献类</strong><p>经变图像与佛教经典关系文献<br/>数量 12,345 篇　占比 24.6%</p><i></i><span>重点：法华经变、弥勒经变</span></article>
+        <article style="--p:19.7%"><strong>历史文献与题记类</strong><p>历史文献、供养题记与官府资料<br/>数量 9,876 篇　占比 19.7%</p><i></i><span>重点：供养人、官署、纪年</span></article>
+        <article style="--p:17.4%"><strong>艺术类文献与研究类</strong><p>艺术史、图像学、考古研究类文献<br/>数量 8,765 篇　占比 17.4%</p><i></i><span>重点：风格、色彩、乐舞</span></article>
+        <article style="--p:13.0%"><strong>文物保护与修复类</strong><p>文物保护、修复与科技分析文献<br/>数量 6,543 篇　占比 13.0%</p><i></i><span>重点：病害、材料、修复</span></article>
+        <article style="--p:8.5%"><strong>数字资源与专题库</strong><p>数字化词典、数据库与专题研究<br/>数量 6,321 篇　占比 8.5%</p><i></i><span>重点：本体、索引、影像库</span></article>
+      </div>
+    </section>
+  </main>
+
+  <script src="../assets/js/knowledge-graph.js"></script>
+  <script src="../assets/js/ai-assistant.js"></script>
+</body>
+</html>
